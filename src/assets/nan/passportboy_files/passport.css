@@ -1,0 +1,170 @@
+/*
+登录界面
+*/
+header:after{
+    display: none!important;
+}
+ .login-bg .list-block .item-content{
+ 
+    padding: 0.2rem 2rem;
+ }
+ .login-bg .list-block .item-content .item-inner{
+    padding: 0;
+ }
+ .login-bg .list-block .item-content .item-inner .item-title.label
+ {
+    padding-right: 0.5rem;
+    width: 18%;
+}
+.login-bg{
+    top:0 !important;
+    background-image: url("../images/enter_2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% ;
+
+}
+
+.m-login{
+    margin-top: 20%;
+}
+.m-login .item-inner{
+    background: gray;
+    opacity: .8;
+    color: #fff;
+    margin: .2rem .5rem;
+    border-radius: .2rem;
+}
+.m-login .item-inner:after{
+    display: none;
+}
+.m-login .item-title.label{
+    text-align: right;
+    padding-right: 1rem;
+    width: 25%;
+}
+.m-login .item-content .iconfont{
+    color: #fff;
+}
+.m-login .item-input .iconfont{
+    position: absolute;
+    top: .5rem;
+    right: .8rem;
+    font-size: 1.2rem;
+}
+.m-login img.verify-code{
+    position: absolute;
+    right: 3rem;
+    top:.9rem;
+}
+.m-login a.verify-code{
+    position: absolute;
+    right: .5rem;
+    top:.9rem;
+    color: #fff;
+    font-size: .7rem;
+}
+.m-login a.verify-code
+.m-login .item-input input[type='password'],
+.m-login .item-input input[type='text'],
+.m-login .item-input input[type='number']{
+    padding-right:1.5rem;
+    font-size: .65rem;
+    color: #fff;
+}
+.m-login input::-webkit-input-placeholder {
+    color:#fff;
+}
+.m-login input::-moz-placeholder {
+    color:#fff;
+}
+.m-login input:-ms-input-placeholder {
+    color:#fff;
+}
+.m-login .item-input input[type='password'][placeholder],
+.m-login .item-input input[type='text'][placeholder],
+.m-login .item-input input[type='number'][placeholder]{
+    color: #fff;
+    font-size: 0.65rem;
+}
+.m-login .item-content{
+    padding: 0.1rem;
+}
+.g-center{
+    width: 16rem;
+    margin: 0.5rem auto;
+}
+.g-center .u-login{
+    width: 100%;
+    height: 2rem;
+    line-height: 1.75rem;
+    border: #333333;
+    background: #b6e1f6;
+    color: #333;
+    font-size: .8rem;
+    margin: 0 auto 1.2rem auto;
+}
+.g-center a{
+    font-size: .7rem;
+    color: #e6e6e6;
+}
+.m-loginWay{
+    /* height: 1.5rem; */
+    margin: 1rem 0 0 0;
+    /* overflow: inherit; */
+}
+.m-loginWay .iconfont{
+    font-size: 1.3rem;
+    color: #e6e6e6;
+}
+.m-loginWay div{
+    text-align: center;
+}
+.m-loginWay a{
+    font-size: .7rem;
+    color: #e6e6e6;
+}
+.u-diagonal{
+    position: absolute;
+    top: .8rem;
+    right: .1rem;
+    display: inline-block;
+    width: 1rem;
+    height: .2rem;
+    background: #e6e6e6;
+    transform: rotate(-60deg);
+}
+
+
+/*
+注册界面
+*/
+.m-loginWay .text{
+    text-align: center;
+    font-size: .7rem;
+}
+.form .btn-send{
+    position: absolute;
+    top: .45rem;
+    right: .5rem;
+    height: auto;
+    color: #fff;
+    border-color: #fff;
+    font-size: .6rem;
+}
+
+/*第三方登录*/
+.m-turst-head{
+    margin: 2rem 0;
+}
+.m-turst-head .u-img img{
+    width: 4rem;
+    height: 4rem;
+}
+.m-turst-head *{
+    color: #fff;
+    text-align: center;
+}
+.trust-login-tips .u-tips{
+    font-size: .75rem;
+    color: #fff;
+}

@@ -1,0 +1,48 @@
+var mySwiper3 = new Swiper('.m-banner-sm .swiper-container',{
+    direction: 'horizontal',
+    loop: true,
+    speed: 300,
+    autoplay: 2000,
+    autoplayDisableOnInteraction: false,
+    pagination: '.swiper-pagination',
+    observer:true,
+    observeParents:true
+});
+var swiper = new Swiper('#tab-design .m-adv3 .swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 12,
+    freeMode: true,
+    loop:true,
+    autoplay:2000,
+    autoplayDisableOnInteraction : false,
+    observer:true,
+    observeParents:true
+});
+var swiper_boy = new Swiper('#tab-brand-boys .m-adv3 .swiper-container', {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    freeMode: true,
+    loop: true,
+    autoplay: 2000,
+    autoplayDisableOnInteraction : false,
+    observer:true,
+    observeParents:true
+});
+var swiper_girl = new Swiper('#tab-brand-girls .m-adv3 .swiper-container', {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    freeMode: true,
+    loop: true,
+    autoplay: 2000,
+    observer:true,
+    autoplayDisableOnInteraction : false,
+    observeParents:true
+});
+$(function () {
+    $(".m-btnRow a").on("click",function () {
+        $(this).parents(".col-25").siblings(".col-25").each(function () {
+            $(this).find("a").removeClass("active");
+        })
+        $(this).addClass("active");
+    });
+})

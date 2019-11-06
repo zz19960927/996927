@@ -1,0 +1,165 @@
+/**
+ * Created by HUGY on 2017/6/27.
+ */
+$(function () {
+    console.log(sessionStorage.sex);
+    if(screen.width<375){
+        console.log("screen less than 375");
+        setProductImg();
+    }
+
+    //滚动固定顶部
+    if($(".fixTop").length > 0){
+        var top=parseInt($(".fixTop").offset().top)+110;
+        $(".content").scroll(function (e) {
+            if($(".content").scrollTop()>top){
+                $(".fixTop").addClass("pos-fixed");
+            }
+            else{
+                $(".fixTop").removeClass("pos-fixed");
+            }
+        })
+    }
+
+})
+//密码明文
+function showPassword(a) {
+    $this=a;
+    console.log($this);
+    $this.find(".u-diagonal").toggleClass("visb-h");
+    if($this.find(".u-diagonal").hasClass("visb-h")){
+        $this.parents(".item-input").find("input").prop("type","text");
+    }
+    else{
+        $this.parents(".item-input").find("input").prop("type","password");
+    }
+
+}
+
+//筛选框下拉选中效果
+function isCheck() {
+    $(".u-choice .u-listItem").on("click",function (e) {
+        var $this=$(this);
+        $this.find(".u-child").toggle();
+    });
+    $(".u-choice .u-listItem .u-child li").on("click",function (e) {
+        $this=$(this);
+        $this.find("p").append("<i class='icon icon-check'></i>")
+        e.stopPropagation();
+    })
+}
+
+// 通用倒计时，包括倒计时所在容器，倒数秒数，显示方式，回调。
+function countdown(el, opt){
+    opt = $.extend({
+        start: 60,
+        secondOnly: false,
+        callback: null
+    }, opt || {});
+    var t = opt.start;
+    var sec = opt.secondOnly;
+    var fn = opt.callback;
+    var d = +new Date();
+    var diff = Math.round((d + t*1000) /1000);
+    this.timer = timeout(el, diff, fn);
+
+    function timeout(elem, until, fn) {
+        var str = '',
+            started = false,
+            left = {d: 0, h: 0, m: 0, s: 0, t: 0},
+            current = Math.round(+new Date() / 1000),
+            data = {d: '天', h: '时', m: '分', s: '秒'};
+
+        left.s = until - current;
+
+        if (left.s <= 0) {
+            (typeof fn === 'function') && fn();
+            return;
+        }
+        if(!sec) {
+            if (Math.floor(left.s / 86400) > 0) {
+              left.d = Math.floor(left.s / 86400);
+              left.s = left.s % 86400;
+              str += left.d + data.d;
+              started = true;
+            }
+            if (Math.floor(left.s / 3600) > 0) {
+              left.h = Math.floor(left.s / 3600);
+              left.s = left.s % 3600;
+              started = true;
+            }
+        }
+        if (started) {
+          str += ' ' + left.h + data.h;
+          started = true;
+        }
+        if(!sec) {
+            if (Math.floor(left.s / 60) > 0) {
+              left.m = Math.floor(left.s / 60);
+              left.s = left.s % 60;
+              started = true;
+            }
+        }
+        if (started) {
+          str += ' ' + left.m + data.m;
+          started = true;
+        }
+        if (Math.floor(left.s) > 0) {
+          started = true;
+        }
+        if (started) {
+          str += ' ' + left.s + data.s;
+          started = true;
+        }
+
+        elem.innerHTML = str;
+        return setTimeout(function() {timeout(elem, until,fn);}, 1000);
+    }
+}
+
+//购买数量加减
+function addNum(a) {
+    $this=$(a);
+    var num=$this.siblings("input").prop("value");
+    num++;
+    var max = $this.siblings("input").attr("max");
+    if(num>max){
+        num=max ;
+    }
+    $this.siblings("input").prop("value",num);
+}
+
+function subNum(a) {
+    $this=$(a);
+    var num=$this.siblings("input").prop("value");
+    num--;
+    if(num<1){
+        num=1;
+    }
+    $this.siblings("input").prop("value",num);
+}
+
+//设置商品图片居中裁剪
+function setProductImg(){
+    var boxWidth=$(".m-product .col-50").width();
+    $(".m-product .col-50 img").each(function () {
+        var imgWidth=$(this).width();
+        if(imgWidth>boxWidth){
+            var left=(imgWidth-boxWidth)*0.5;
+            $(this).css("marginLeft",-left);
+        }
+
+    })
+}
+//字符串含中文的个数
+String.prototype.lengthZH = function () {
+    var len = 0;
+    for (var i = 0; i < this.length; i++) {
+        if (this.charCodeAt(i) > 127 || this.charCodeAt(i) == 94) {
+            len += 2;
+        } else {
+            len++;
+        }
+    }
+    return len;
+}
